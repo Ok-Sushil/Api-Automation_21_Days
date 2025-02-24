@@ -1,0 +1,5 @@
+✅ Summary of What You Learned Today:
+✔ Manual vs. Automated API Testing – Differences & benefits.
+✔ Setting up Rest Assured – Adding dependencies in Maven/Gradle.
+✔ Writing a GET request test – Sending API requests using Rest Assured.
+✔ Validating API responses – Checking status codes & JSON response data.

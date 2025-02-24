@@ -1,0 +1,21 @@
+Topic 1: Introduction to API Automation
+Subtopic a: Manual vs. Automated Testing – Differences & Benefits
+🔹 Manual API Testing (Using Postman)
+✔ Testers manually send requests & check responses.
+✔ Good for quick exploratory testing.
+✔ Not efficient for large-scale or repetitive testing.
+
+🔹 Automated API Testing (Using Rest Assured)
+✔ Tests are written as code and executed automatically.
+✔ Ensures repeatability, speed, and accuracy.
+✔ Can be integrated into CI/CD pipelines.
+
+📌 Example Scenario:
+✅ If an API has 50 endpoints, testing them manually will take time.
+✅ Automation can test all 50 endpoints quickly & consistently.
+
+Subtopic b: Importance of API Automation
+✔ Fast Execution – Automated tests run much faster than manual ones.
+✔ Consistency – Eliminates human errors in testing.
+✔ Scalability – Can handle large test suites.
+✔ Integration – Can be part of DevOps & CI/CD.

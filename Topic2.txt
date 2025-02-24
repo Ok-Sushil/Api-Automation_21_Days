@@ -1,0 +1,87 @@
+Topic 2: Setting Up Rest Assured for API Testing
+Subtopic a: Dependencies Installation – Adding Rest Assured with Maven/Gradle
+=============================================================================
+🔹 What is Rest Assured?
+
+A Java library for automating REST API testing.
+Works with JUnit/TestNG for test execution.
+✅ Adding Rest Assured to Maven (pom.xml)
+xml
+<dependencies>
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>5.3.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.7.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+
+Subtopic b: Writing a Simple GET Request Test using Rest Assured
+============================================================================
+📌 Example: Test to Fetch Users
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class ApiTest {
+    
+    @Test
+    public void testGetUsers() {
+        Response response = RestAssured
+                .given()
+                .when()
+                .get("https://jsonplaceholder.typicode.com/users");
+
+        System.out.println(response.getBody().asString());
+
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+}
+
+✅ Explanation:
+✔ RestAssured.given().when().get(URL) → Sends a GET request.
+✔ response.getBody().asString() → Prints the response body.
+✔ Assert.assertEquals(statusCode, 200) → Verifies that the status code is 200 OK.
+
+
+Subtopic c: Response Validation – Verifying Status Codes & Response Body
+=========================================================================================
+✅ Example: Validating Status Code & JSON Response
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class ApiTest {
+
+    @Test
+    public void testGetUserById() {
+        Response response = RestAssured
+                .given()
+                .when()
+                .get("https://jsonplaceholder.typicode.com/users/1");
+
+        // Validate Status Code
+        Assert.assertEquals(response.getStatusCode(), 200);
+
+        // Validate JSON Response
+        String name = response.jsonPath().getString("name");
+        Assert.assertEquals(name, "Leanne Graham");
+
+        System.out.println("User Name: " + name);
+    }
+}
+
+✅ What This Test Does:
+✔ Sends a GET request to fetch user with ID 1.
+✔ Checks if the status code is 200.
+✔ Extracts the user’s name and verifies it.
